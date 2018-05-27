@@ -45,6 +45,21 @@ map.on('load', function () {
         map.getCanvas().style.cursor = '';
     });
 
+    map.addSource("projects", {
+      "type": "geojson",
+      "data": "https://westfieldny.com/api/geojson/projects"
+    });
+    map.addLayer({
+      "id": "projects",
+      "type": "circle",
+      "source": "projects",
+      "paint": {
+        "circle-radius": 10,
+        "circle-color": "#ff442b",
+        "circle-opacity": 1
+       }
+   });
+
 });
 
 var toggleableLayerIds = [ 'Development Regions' ];
