@@ -119,20 +119,39 @@ for (var i = 0; i < toggleableLayerIds.length; i++) {
 }
 
 // FILTER FUNCTIONALITY
-var formProjectStatus;
-var statusFilter;
+var formProjectStatus = 'All';
+var formProjectType = 'All';
+var statusFilter = ["==", 'status', formProjectStatus];
+var typeFilter = ["==", 'type', formProjectType];
 
 var projectsFilterParams;
 
+function buildProjectsFilter() {
+  if (formProjectStatus == 'All' && formProjectType !== 'All') {
+    projectsFilterParams = ["all", typeFilter];
+  } else if (formProjectStatus !== 'All' && formProjectType == 'All') {
+    projectsFilterParams = ["all", statusFilter];
+  } else {
+    projectsFilterParams = ["all", statusFilter, typeFilter];
+  }
+  console.log(projectsFilterParams);
+}
+
 $('#projectStatus').change(function () {
   formProjectStatus = $(this).find("option:selected").val();
-  statusFilter = ["all",["==", 'status', formProjectStatus]];
-  projectsFilterParams = statusFilter;
+  statusFilter = ["==", 'status', formProjectStatus];
+  buildProjectsFilter();
+});
+
+$('#projectType').change(function () {
+  formProjectType = $(this).find("option:selected").val();
+  typeFilter = ["==", 'type', formProjectType];
+  buildProjectsFilter();
 });
 
 $("#project-filters").submit(function(e) {
   e.preventDefault();
-  if (formProjectStatus == 'All'){
+  if (formProjectStatus == 'All' && formProjectType == 'All'){
     map.setFilter('Projects');
   } else {
     map.setFilter('Projects', projectsFilterParams);
