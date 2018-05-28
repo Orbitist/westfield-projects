@@ -75,7 +75,7 @@ map.on('load', function () {
      var projectLabel = e.features[0].properties.name;
      new mapboxgl.Popup()
          .setLngLat(e.lngLat)
-         .setHTML('<div class="o-tile"><div class="o-tile-img Point_of_interest"><a href="' + projectUrl + '"><img src="https://westfieldny.com' + projectImg + '" width="200" height="200" alt="' + e.features[0].properties.name + '" class="img-fluid"></a></div><div class="o-tile-content"><div class="o-tile-content-info">' + projectInfo + '</div><div class="o-tile-content-title"><a href="' + projectUrl + '">' + projectLabel + '<p><span class="badge badge-secondary">Learn more</span></p></a></div></div></div>')
+         .setHTML('<div class="o-tile"><div class="o-tile-img Point_of_interest"><a href="' + projectUrl + '" target="_parent"><img src="https://westfieldny.com' + projectImg + '" width="200" height="200" alt="' + e.features[0].properties.name + '" class="img-fluid"></a></div><div class="o-tile-content"><div class="o-tile-content-info">' + projectInfo + '</div><div class="o-tile-content-title"><a href="' + projectUrl + '" target="_parent">' + projectLabel + '<p><span class="badge badge-secondary">Learn more</span></p></a></div></div></div>')
          .addTo(map);
    });
    map.on('mouseenter', 'Projects', function () {
