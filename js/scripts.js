@@ -66,7 +66,7 @@ map.on('load', function () {
         /* other */ '#ccc'
       ],
       "circle-opacity": 1
-     }
+    }
    });
    map.on('click', 'Projects', function (e) {
      var projectUrl = 'https://westfieldny.com' + e.features[0].properties.path;
@@ -87,6 +87,7 @@ map.on('load', function () {
 
 });
 
+// TOGGLE LAYERS
 var toggleableLayerIds = [ 'Development Regions', 'Projects' ];
 
 for (var i = 0; i < toggleableLayerIds.length; i++) {
@@ -116,3 +117,24 @@ for (var i = 0; i < toggleableLayerIds.length; i++) {
     var layers = document.getElementById('menu');
     layers.appendChild(link);
 }
+
+// FILTER FUNCTIONALITY
+var formProjectStatus;
+var statusFilter;
+
+var projectsFilterParams;
+
+$('#projectStatus').change(function () {
+  formProjectStatus = $(this).find("option:selected").val();
+  statusFilter = ["all",["==", 'status', formProjectStatus]];
+  projectsFilterParams = statusFilter;
+});
+
+$("#project-filters").submit(function(e) {
+  e.preventDefault();
+  if (formProjectStatus == 'All'){
+    map.setFilter('Projects');
+  } else {
+    map.setFilter('Projects', projectsFilterParams);
+  }
+});
