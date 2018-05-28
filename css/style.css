@@ -91,3 +91,25 @@ body { margin:0; padding:0; }
 .videos a:hover {
   background: #3074a4;
 }
+
+#project-filters {
+  position: absolute;
+  bottom: 31px;
+  left: 10px;
+  background-color: white;
+  padding: 0 20px;
+  border-radius: 4px;
+}
+
+#project-filters label {
+  margin: 10px 0 0 0;
+}
+
+#project-filters .filter-button-container {
+  text-align: center;
+}
+
+#project-filters .filter-button-container button {
+  width: 100%;
+  margin-top: 34px;
+}
