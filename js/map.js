@@ -71,11 +71,11 @@ map.on('load', function () {
    map.on('click', 'Projects', function (e) {
      var projectUrl = 'https://westfieldny.com' + e.features[0].properties.path;
      var projectImg = e.features[0].properties.image;
-     var projectInfo = e.features[0].properties.status + ' ' + e.features[0].properties.type;
+     var projectInfo = e.features[0].properties.status + ', ' + e.features[0].properties.type;
      var projectLabel = e.features[0].properties.name;
      new mapboxgl.Popup()
          .setLngLat(e.lngLat)
-         .setHTML('<div class="card"><a href="' + projectUrl + '" target="_parent"><img src="https://westfieldny.com' + projectImg + '" width="200" height="200" alt="' + e.features[0].properties.name + '" class="card-img-top"></a><div class="card-body"><a href="' + projectUrl + '" target="_parent"><h5 class="card-title">' + projectLabel + '</h5></a><p class="card-text">' + projectInfo + ' <span class="badge badge-secondary">Learn more</span></p></div></div>')
+         .setHTML('<div class="card"><a href="' + projectUrl + '" target="_parent"><img src="https://westfieldny.com' + projectImg + '" width="200" height="200" alt="' + e.features[0].properties.name + '" class="card-img-top"></a><div class="card-body"><a href="' + projectUrl + '" target="_parent"><p class="lead card-title">' + projectLabel + '</p></a><p class="card-text">' + projectInfo + '</p></div></div>')
          .addTo(map);
    });
    map.on('mouseenter', 'Projects', function () {
