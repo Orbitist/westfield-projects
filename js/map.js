@@ -153,7 +153,9 @@ $("#project-filters").submit(function(e) {
   e.preventDefault();
   if (formProjectStatus == 'All' && formProjectType == 'All'){
     map.setFilter('Projects');
+    runStats();
   } else {
     map.setFilter('Projects', projectsFilterParams);
+    runStats();
   }
 });
