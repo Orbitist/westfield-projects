@@ -18,6 +18,9 @@
       <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.min.js'></script>
       <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.css' type='text/css' />
 
+      <link rel="stylesheet" href="css/odometer-theme-default.css" />
+      <script src="js/odometer.min.js"></script>
+
       <link href='css/o-tiles.css' rel='stylesheet' />
   		<link href='css/style.css' rel='stylesheet' />
   </head>
@@ -63,27 +66,27 @@
     <div class="figures-block">
       <div class="row">
         <div class="col-md-2">
-          <div class="figure" id="economicImpact"></div>
+          $<div class="figure odometer" id="economicImpact"></div>
           <p>In economic impact</p>
         </div>
         <div class="col-md-2">
-          <div class="figure" id="jobsRetained"></div>
+          <div class="figure odometer" id="jobsRetained"></div>
           <p>Direct jobs retained</p>
         </div>
         <div class="col-md-2">
-          <div class="figure" id="indirectJobs"></div>
+          <div class="figure odometer" id="indirectJobs"></div>
           <p>Indirect jobs created</p>
         </div>
         <div class="col-md-2">
-          <div class="figure" id="constructionJobs"></div>
+          <div class="figure odometer" id="constructionJobs"></div>
           <p>Construction jobs created</p>
         </div>
         <div class="col-md-2">
-          <div class="figure" id="requiredInvestment"></div>
+          $<div class="figure odometer" id="requiredInvestment"></div>
           <p>Required investment</p>
         </div>
         <div class="col-md-2">
-          <div class="figure" id="cost"></div>
+          $<div class="figure odometer" id="cost"></div>
           <p>Project cost</p>
         </div>
       </div>

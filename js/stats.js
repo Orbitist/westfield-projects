@@ -81,12 +81,12 @@ function runStats() {
   }
 
 
-  $('#constructionJobs').html(constructionJobs).digits();
-  $('#cost').html('$' + cost).digits();
-  $('#jobsRetained').html(jobsRetained).digits();
-  $('#economicImpact').html('$' + economicImpact).digits();
-  $('#indirectJobs').html(indirectJobs).digits();
-  $('#requiredInvestment').html('$' + requiredInvestment).digits();
+  $('#constructionJobs').html(constructionJobs);
+  $('#cost').html(cost);
+  $('#jobsRetained').html(jobsRetained);
+  $('#economicImpact').html(economicImpact);
+  $('#indirectJobs').html(indirectJobs);
+  $('#requiredInvestment').html(requiredInvestment);
 }
 
 runStats();
