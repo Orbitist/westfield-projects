@@ -1,6 +1,27 @@
 body { margin:0; padding:0; }
 #map { position:absolute; top:0; bottom:0; width:100%; }
 
+.mapboxgl-popup-content {
+  padding: 0;
+}
+
+.small-map-label {
+  padding: 20px;
+}
+
+.mapboxgl-popup-close-button {
+  z-index: 9;
+  background-color: #eee;
+}
+.mapboxgl-popup-close-button:hover {
+  background-color: white;
+  opacity: 0.8;
+}
+
+.mapboxgl-popup-content {
+  width: 280px;
+}
+
 #menu {
   margin: 10px 20px 20px 20px;
 }
@@ -41,54 +62,12 @@ body { margin:0; padding:0; }
   cursor: pointer;
 }
 
-.mapboxgl-popup-content {
-  width: 300px;
-  height: 100px;
-  padding: 0;
-}
-
-.mapboxgl-popup-content iframe {
-  width: 100%;
-  height: 100%;
-}
-
-.mapboxgl-popup-close-button {
-  z-index: 9;
-}
-
-.videos {
-  position: absolute;
-  z-index: 1;
-  bottom: 30px;
-  left: 10px;
-  font-family: 'Open Sans', sans-serif;
-}
-
-.videos a {
-  font-size: 18px;
-  display: inline-block;
-  margin: 0;
-  padding: 20px;
-  text-decoration: none;
-  border-bottom: 1px solid rgba(0,0,0,0.25);
-  border-radius: 3px;
-  text-align: center;
-  background-color: #3887be;
-  color: #ffffff;
-}
-
-.videos a:hover {
-  background: #3074a4;
-}
-
 #project-filters {
   bottom: 31px;
   left: 10px;
   padding: 0 20px;
   border-radius: 4px;
 }
-
-
 
 #project-filters .filter-button-container {
   text-align: center;

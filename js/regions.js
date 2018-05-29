@@ -4,7 +4,7 @@ var regionsData = {
     {
       "type": "Feature",
       "properties": {
-        "html": '<div class="o-tile"><div class="o-tile-img Point_of_interest"><img src="https://westfieldny.com/sites/default/files/styles/tile_images_200_x_200_/public/2017-12/1N1A1793_0_0.JPG?itok=MbxzuAa5" width="200" height="200" alt="Memorial Day Breakfast" class="img-fluid"></div><div class="o-tile-content"><div class="o-tile-content-info">Development Region</div><div class="o-tile-content-title">Barcelona</div></div></div>',
+        "html": '<div class="small-map-label">Barcelona Region</div>',
         "color": "#A8E6CF"
       },
       "geometry": {
@@ -42,7 +42,7 @@ var regionsData = {
     {
       "type": "Feature",
       "properties": {
-        "html": '<div class="o-tile"><div class="o-tile-img Point_of_interest"><img src="https://westfieldny.com/sites/default/files/styles/tile_images_200_x_200_/public/econ-images/2018-05/water_plant.jpg?itok=AlMRkujG" width="200" height="200" alt="Westfield water plant" class="img-fluid"></div><div class="o-tile-content"><div class="o-tile-content-info">Development Region</div><div class="o-tile-content-title">Throughway Corridor</div></div></div>',
+        "html": '<div class="small-map-label">Throughway Corridor</div>',
         "color": "#FFD3B6"
       },
       "geometry": {
@@ -84,7 +84,7 @@ var regionsData = {
     {
       "type": "Feature",
       "properties": {
-        "html": '<div class="o-tile"><div class="o-tile-img Point_of_interest"><img src="https://westfieldny.com/sites/default/files/styles/tile_images_200_x_200_/public/2018-01/1N1A1807.JPG?itok=5FyVtFkz" width="200" height="200" alt="Downtown Westfield" class="img-fluid"></div><div class="o-tile-content"><div class="o-tile-content-info">Development Region</div><div class="o-tile-content-title">Downtown Core</div></div></div>',
+        "html": '<div class="small-map-label">Downtown core</div>',
         "color": "#FF8B94"
       },
       "geometry": {
