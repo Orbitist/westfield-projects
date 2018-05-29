@@ -4,7 +4,7 @@ var regionsData = {
     {
       "type": "Feature",
       "properties": {
-        "html": '<div class="small-map-label">Barcelona Region</div>',
+        "title": 'Barcelona Region',
         "color": "#A8E6CF"
       },
       "geometry": {
@@ -42,7 +42,7 @@ var regionsData = {
     {
       "type": "Feature",
       "properties": {
-        "html": '<div class="small-map-label">Throughway Corridor</div>',
+        "title": 'Throughway Corridor',
         "color": "#FFD3B6"
       },
       "geometry": {
@@ -84,7 +84,7 @@ var regionsData = {
     {
       "type": "Feature",
       "properties": {
-        "html": '<div class="small-map-label">Downtown core</div>',
+        "title": 'Downtown core',
         "color": "#FF8B94"
       },
       "geometry": {
