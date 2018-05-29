@@ -9,7 +9,7 @@ var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/westfieldny/cjcxob2e71c352smnmnuscxbn',
     center: [-79.585621, 42.329138],
-    zoom: 13.5,
+    zoom: 13,
     minZoom: 10,
     maxBounds: bounds
 });
@@ -162,3 +162,41 @@ $('#projectType').change(function () {
     runStats();
   }
 });
+
+// Function to toggle with Jquery
+$.fn.toggleClick = function(){
+    var methods = arguments, // store the passed arguments for future reference
+        count = methods.length; // cache the number of methods
+
+    //use return this to maintain jQuery chainability
+    return this.each(function(i, item){
+        // for each element you bind to
+        var index = 0; // create a local counter for that element
+        $(item).click(function(){ // bind a click handler to that element
+            return methods[index++ % count].apply(this,arguments); // that when called will apply the 'index'th method to that element
+            // the index % count means that we constrain our iterator between 0 and (count-1)
+        });
+    });
+};
+
+// Toggle filters block
+function inFilters() {
+  $('.filters-block').addClass( "active" );
+  $('#toggleFilters').addClass( "active" );
+}
+function outFilters() {
+  $('.filters-block').removeClass( "active" );
+  $('#toggleFilters').removeClass( "active" );
+}
+$('#toggleFilters').toggleClick(inFilters, outFilters);
+
+// Toggle stats block
+function inStats() {
+  $('.figures-block').addClass( "active" );
+  $('#toggleStats').addClass( "active" );
+}
+function outStats() {
+  $('.figures-block').removeClass( "active" );
+  $('#toggleStats').removeClass( "active" );
+}
+$('#toggleStats').toggleClick(inStats, outStats);
