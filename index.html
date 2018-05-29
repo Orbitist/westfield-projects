@@ -22,73 +22,72 @@
   		<link href='css/style.css' rel='stylesheet' />
   </head>
   <body>
-    <div id='menu'></div>
     <div id='map'></div>
-    <form id='project-filters'>
-      <div class="form-row">
-        <div class="col">
-          <div class="form-group">
-            <label for="projectStatus">Project Status</label>
-            <select class="form-control" id="projectStatus">
-              <option>All</option>
-              <option>Proposed</option>
-              <option>Underway</option>
-              <option>Complete</option>
-            </select>
-          </div>
-        </div>
-        <div class="col">
-          <div class="form-group">
-            <label for="projectType">Project Type</label>
-            <select class="form-control" id="projectType">
-              <option>All</option>
-              <option>Advanced Manufacturing</option>
-              <option>Agriculture</option>
-              <option>Entrepreneurship</option>
-              <option>Health & Life Sciences</option>
-              <option>Smart Growth</option>
-              <option>Tourism</option>
-              <option>Workforce Preparation</option>
-            </select>
-          </div>
-        </div>
-        <div class="col">
-          <div class="form-group filter-button-container">
-            <button type="submit" class="btn btn-primary">Filter</button>
-          </div>
-        </div>
-      </div>
-    </form>
 
+    <!-- FILTERS -->
+    <div class="filters-block">
+      <div id='menu'><label>Layers</label><br></div>
+      <form id='project-filters'>
+        <div class="form-row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="projectStatus">Project Status</label>
+              <select class="form-control" id="projectStatus">
+                <option>All</option>
+                <option>Proposed</option>
+                <option>Underway</option>
+                <option>Complete</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="projectType">Project Type</label>
+              <select class="form-control" id="projectType">
+                <option>All</option>
+                <option>Advanced Manufacturing</option>
+                <option>Agriculture</option>
+                <option>Entrepreneurship</option>
+                <option>Health & Life Sciences</option>
+                <option>Smart Growth</option>
+                <option>Tourism</option>
+                <option>Workforce Preparation</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- FIGURES -->
     <div class="figures-block">
-      <h1>Totals</h1>
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-2">
           <div class="figure" id="economicImpact"></div>
           <p>In economic impact</p>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-2">
           <div class="figure" id="jobsRetained"></div>
           <p>Direct jobs retained</p>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-2">
           <div class="figure" id="indirectJobs"></div>
           <p>Indirect jobs created</p>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-2">
           <div class="figure" id="constructionJobs"></div>
           <p>Construction jobs created</p>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-2">
           <div class="figure" id="requiredInvestment"></div>
           <p>Required investment</p>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-2">
           <div class="figure" id="cost"></div>
           <p>Project cost</p>
         </div>
       </div>
-    </div>
+    </div><!-- /.figures-block -->
 
     <script src="js/jquery.fitvids.js"></script>
 

@@ -141,16 +141,19 @@ $('#projectStatus').change(function () {
   formProjectStatus = $(this).find("option:selected").val();
   statusFilter = ["==", 'status', formProjectStatus];
   buildProjectsFilter();
+  if (formProjectStatus == 'All' && formProjectType == 'All'){
+    map.setFilter('Projects');
+    runStats();
+  } else {
+    map.setFilter('Projects', projectsFilterParams);
+    runStats();
+  }
 });
 
 $('#projectType').change(function () {
   formProjectType = $(this).find("option:selected").val();
   typeFilter = ["==", 'type', formProjectType];
   buildProjectsFilter();
-});
-
-$("#project-filters").submit(function(e) {
-  e.preventDefault();
   if (formProjectStatus == 'All' && formProjectType == 'All'){
     map.setFilter('Projects');
     runStats();

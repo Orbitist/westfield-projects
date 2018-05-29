@@ -2,26 +2,14 @@ body { margin:0; padding:0; }
 #map { position:absolute; top:0; bottom:0; width:100%; }
 
 #menu {
-    background: #fff;
-    position: absolute;
-    z-index: 1;
-    top: 10px;
-    left: 10px;
-    border-radius: 3px;
-    width: 150px;
-    border: 1px solid rgba(0,0,0,0.4);
-    font-family: 'Open Sans', sans-serif;
+  margin: 10px 20px 20px 20px;
 }
 
 #menu a {
-    font-size: 13px;
+    font-size: 12px;
     color: #404040;
-    display: block;
-    margin: 0;
-    padding: 0;
     padding: 10px;
     text-decoration: none;
-    border-bottom: 1px solid rgba(0,0,0,0.25);
     text-align: center;
 }
 
@@ -93,17 +81,13 @@ body { margin:0; padding:0; }
 }
 
 #project-filters {
-  position: absolute;
   bottom: 31px;
   left: 10px;
-  background-color: white;
   padding: 0 20px;
   border-radius: 4px;
 }
 
-#project-filters label {
-  margin: 10px 0 0 0;
-}
+
 
 #project-filters .filter-button-container {
   text-align: center;
@@ -116,17 +100,14 @@ body { margin:0; padding:0; }
 
 .figures-block {
   position: absolute;
-  bottom: 31px;
-  right: 10px;
-  background-color: white;
-  width: 50%;
-  border-radius: 4px;
+  bottom: 40px;
+  right: 20px;
+  background-color: rgba(0,0,0,0.6);
+  width: calc(100% - 40px);
   text-align: center;
   padding: 20px 20px 0;
-}
-
-.figures-block .col-md-4 {
-  margin-bottom: 20px;
+  color: white;
+  border-radius: 4px;
 }
 
 .figure {
@@ -135,4 +116,14 @@ body { margin:0; padding:0; }
 
 .figures-block p {
   font-weight: bold;
+}
+
+.filters-block {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 300px;
+  background-color: rgba(0,0,0,0.6);
+  color: white;
+  border-radius: 4px;
 }
