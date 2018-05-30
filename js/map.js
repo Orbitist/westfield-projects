@@ -57,6 +57,8 @@ map.on('load', function () {
     "source": "projects",
     "paint": {
       "circle-radius": 10,
+      "circle-stroke-width": 2,
+      "circle-stroke-color": "#ffffff",
       "circle-color": [
         'match',
         ['get', 'status'],
