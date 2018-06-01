@@ -139,13 +139,12 @@ body { margin:0; padding:0; }
   bottom: 90%;
 }
 
-.story-marker {
-    background-image: url(../img/orbitist-icon-blue.png);
+.vr-marker {
+    background-image: url(../img/vr-icon.png);
     background-size: cover;
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    margin-top: -15px;
     cursor: pointer;
 }
 

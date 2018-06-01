@@ -91,11 +91,11 @@ map.on('load', function () {
    vrLayer.features.forEach(function(marker) {
      // create a HTML element for each feature
      var el = document.createElement('div');
-     el.className = 'story-marker';
+     el.className = 'vr-marker';
      // make a marker for each feature and add to the map
      new mapboxgl.Marker(el)
      .setLngLat(marker.geometry.coordinates)
-     .setPopup(new mapboxgl.Popup({ offset: 0, closeButton: false }) // add popups
+     .setPopup(new mapboxgl.Popup({ offset: 10, closeButton: false }) // add popups
      .setHTML(marker.properties.content))
      .addTo(map);
    });
