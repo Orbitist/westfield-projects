@@ -36,33 +36,33 @@
       });
 
 			// Load hotspots
-			vrView.on('ready',function() {
-
-				vrView.addHotspot('kayak-launch', {
-				  pitch: -60, // In degrees. Up is positive.
-				  yaw: -20, // In degrees. To the right is positive.
-				  radius: 0.1, // Radius of the circular target in meters.
-				  distance: 2 // Distance of target from camera in meters.
-				});
-				vrView.on('click', function(event) {
-					if (event.id == 'kayak-launch') {
-						console.log("kayak launch");
-					}
-				});
-
-				vrView.addHotspot('welch-trail', {
-					pitch: -30, // In degrees. Up is positive.
-					yaw: 40, // In degrees. To the right is positive.
-					radius: 0.1, // Radius of the circular target in meters.
-					distance: 2 // Distance of target from camera in meters.
-				});
-				vrView.on('click', function(event) {
-					if (event.id == 'welch-trail') {
-						console.log("Welch Trail");
-					}
-				});
-
-			});
+			// vrView.on('ready',function() {
+			//
+			// 	vrView.addHotspot('kayak-launch', {
+			// 	  pitch: -60, // In degrees. Up is positive.
+			// 	  yaw: 30, // In degrees. To the right is positive.
+			// 	  radius: 0.1, // Radius of the circular target in meters.
+			// 	  distance: 2 // Distance of target from camera in meters.
+			// 	});
+			// 	vrView.on('click', function(event) {
+			// 		if (event.id == 'kayak-launch') {
+			// 			console.log("kayak launch");
+			// 		}
+			// 	});
+			//
+			// 	vrView.addHotspot('welch-trail', {
+			// 		pitch: -30, // In degrees. Up is positive.
+			// 		yaw: -40, // In degrees. To the right is positive.
+			// 		radius: 0.1, // Radius of the circular target in meters.
+			// 		distance: 2 // Distance of target from camera in meters.
+			// 	});
+			// 	vrView.on('click', function(event) {
+			// 		if (event.id == 'welch-trail') {
+			// 			console.log("Welch Trail");
+			// 		}
+			// 	});
+			//
+			// });
 
     }
   </script>
