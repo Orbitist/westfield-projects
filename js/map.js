@@ -46,24 +46,6 @@ map.on('load', function () {
       }
   });
 
-  // VR
-  map.addSource("vr", {
-    "type": "geojson",
-    "data": "js/vr.geojson"
-  });
-  map.addLayer({
-    "id": "vr",
-    "type": "circle",
-    "source": "vr",
-    "layout": {
-      "icon-image": "attraction-15",
-      "text-field": "VR Panorama",
-      "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
-      "text-offset": [0, 0.6],
-      "text-anchor": "top"
-  }
-   });
-
   // PROJECTS
   map.addSource("projects", {
     "type": "geojson",
