@@ -23,7 +23,7 @@ body { margin:0; padding:0; }
 }
 
 .mapboxgl-popup-content {
-  width: 280px;
+  width: 350px;
 }
 
 #menu {
@@ -137,6 +137,21 @@ body { margin:0; padding:0; }
 }
 #toggleStats.active {
   bottom: 90%;
+}
+
+.story-marker {
+    background-image: url(../img/orbitist-icon-blue.png);
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-top: -15px;
+    cursor: pointer;
+}
+
+iframe.vr {
+  height: 250px;
+  width: 100%;
 }
 
 @media (max-width: 1020px) {
