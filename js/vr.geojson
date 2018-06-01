@@ -1,0 +1,67 @@
+[
+  {
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+            "content": "<iframe allowfullscreen='true' scrolling='no' src='panoramas/mud_lake.html' style='border:0;'></iframe>"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-79.316538, 42.354815]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+            "content": "<iframe allowfullscreen='true' scrolling='no' src='panoramas/center_park.html' style='border:0;'></iframe>"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-79.317029, 42.357098]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+            "content": "<iframe allowfullscreen='true' scrolling='no' src='panoramas/walden.html' style='border:0;'></iframe>"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-79.318072, 42.357875]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+            "content": "<iframe allowfullscreen='true' scrolling='no' src='panoramas/wetlands.html' style='border:0;'></iframe>"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-79.318211, 42.356066]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+            "content": "<iframe allowfullscreen='true' scrolling='no' src='panoramas/walden_ground.html' style='border:0;'></iframe>"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-79.318708, 42.357443]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+            "content": "<iframe allowfullscreen='true' scrolling='no' src='panoramas/camp_gross.html' style='border:0;'></iframe>"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-79.316654, 42.358845]
+        }
+      }
+    ]
+  }
+]

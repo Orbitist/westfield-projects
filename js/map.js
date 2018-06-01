@@ -46,6 +46,24 @@ map.on('load', function () {
       }
   });
 
+  // VR
+  map.addSource("vr", {
+    "type": "geojson",
+    "data": "js/vr.geojson"
+  });
+  map.addLayer({
+    "id": "vr",
+    "type": "circle",
+    "source": "vr",
+    "paint": {
+      "circle-radius": 10,
+      "circle-stroke-width": 2,
+      "circle-stroke-color": "#ffffff",
+      "circle-color": "#ffffff",
+      "circle-opacity": 1
+    }
+   });
+
   // PROJECTS
   map.addSource("projects", {
     "type": "geojson",
