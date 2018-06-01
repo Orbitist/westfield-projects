@@ -20,6 +20,16 @@ var vrLayer = {
             "type": "Point",
             "coordinates": [-79.581335, 42.329108]
         }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+            "content": "<iframe class='vr' allowfullscreen='true' scrolling='no' src='vr/welch_field.html' style='border:0;'></iframe><p style='margin:5px 20px 10px;' class='lead'>Bird's Eye: Welch Field</p>"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-79.573019, 42.317471]
+        }
       }
     ]
   };
