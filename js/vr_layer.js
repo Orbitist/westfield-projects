@@ -34,7 +34,7 @@ var vrLayer = {
       {
         "type": "Feature",
         "properties": {
-            "content": "<iframe class='vr' allowfullscreen='true' scrolling='no' src='vr/moore_park.html' style='border:0;'></iframe><p style='margin:5px 20px 10px;' class='lead'>Bird's Eye: Welch Field</p>"
+            "content": "<iframe class='vr' allowfullscreen='true' scrolling='no' src='vr/moore_park.html' style='border:0;'></iframe><p style='margin:5px 20px 10px;' class='lead'>Bird's Eye: Moore Park</p>"
         },
         "geometry": {
             "type": "Point",
