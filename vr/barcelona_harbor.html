@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Orbitist VR</title>
+	<meta name="description" content="Orbitist VR">
+	<meta name="author" content="Orbitist">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="../css/panoramas.css">
+
+</head>
+<body>
+  <div class="fullscreen">
+    <!-- Google VR Viewer -->
+    <div id='vrview'></div>
+  </div>
+
+  <!-- Google VR Viewer JS -->
+  <script src="https://storage.googleapis.com/vrview/2.0/build/vrview.min.js"></script>
+
+	<script>
+    window.addEventListener('load', onVrViewLoad);
+    function onVrViewLoad() {
+      // Selector '#vrview' finds element with id 'vrview'.
+      var vrView = new VRView.Player('#vrview', {
+        image: 'vr_images/barcelona_harbor.jpg',
+        is_stereo: false,
+        width: '100%',
+        height: '100%'
+      });
+    }
+  </script>
+
+</body>
+</html>
