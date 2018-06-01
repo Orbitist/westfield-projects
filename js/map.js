@@ -55,13 +55,13 @@ map.on('load', function () {
     "id": "vr",
     "type": "circle",
     "source": "vr",
-    "paint": {
-      "circle-radius": 10,
-      "circle-stroke-width": 2,
-      "circle-stroke-color": "#ffffff",
-      "circle-color": "#ffffff",
-      "circle-opacity": 1
-    }
+    "layout": {
+      "icon-image": "attraction-15",
+      "text-field": "VR Panorama",
+      "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
+      "text-offset": [0, 0.6],
+      "text-anchor": "top"
+  }
    });
 
   // PROJECTS
