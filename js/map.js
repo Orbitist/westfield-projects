@@ -21,7 +21,7 @@ map.on('load', function () {
 
   // REGIONS
   map.addLayer({
-      'id': 'Development Regions',
+      'id': 'DRI Regions',
       'type': 'fill',
       'source': {
           'type': 'geojson',
@@ -35,7 +35,7 @@ map.on('load', function () {
   });
   map.on("mousemove", function (e) {
       var features = map.queryRenderedFeatures(e.point, {
-          layers: ["Development Regions"]
+          layers: ["DRI Regions"]
       });
 
       if (features.length) {
@@ -103,7 +103,7 @@ map.on('load', function () {
 });
 
 // TOGGLE LAYERS
-var toggleableLayerIds = [ 'Development Regions', 'Projects' ];
+var toggleableLayerIds = [ 'DRI Regions', 'Projects' ];
 
 for (var i = 0; i < toggleableLayerIds.length; i++) {
     var id = toggleableLayerIds[i];
