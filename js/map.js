@@ -19,6 +19,25 @@ map.addControl(new mapboxgl.NavigationControl());
 
 map.on('load', function () {
 
+  // Municipal Regions
+  map.addLayer({
+      'id': 'municipalRegions',
+      'type': 'line',
+      'source': {
+          'type': 'geojson',
+          'data': municipalRegions
+      },
+      'layout': {
+        "line-join": "round",
+        "line-cap": "round"
+      },
+      'paint': {
+        "line-color": ['get', 'color'],
+        "line-width": 6,
+        "line-opacity": 0.8
+      }
+  });
+
   // LWRP Region
   map.addLayer({
       'id': 'lwrpRegion',
@@ -52,7 +71,7 @@ map.on('load', function () {
   // Mouse interactions with regions
   map.on("mousemove", function (e) {
       var features = map.queryRenderedFeatures(e.point, {
-          layers: ["driRegions", "lwrpRegion"]
+          layers: ["driRegions", "lwrpRegion", "municipalRegions"]
       });
 
       if (features.length) {
@@ -120,7 +139,8 @@ map.on('load', function () {
 });
 
 // TOGGLERS
-var toggleableLayers = [{label:'DRI Regions', id:'driRegions', defaultState:'checked'}, {label:'LWRP Region', id:'lwrpRegion', defaultState:'checked'}, {label:'Projects', id:'projects', defaultState:'checked'}];
+var toggleableLayers = [{label:'Projects', id:'projects', defaultState:'checked'},{label:'DRI Regions', id:'driRegions', defaultState:'checked'}, {label:'LWRP Region', id:'lwrpRegion', defaultState:'checked'},
+{label:'Municipal Boundaries', id:'municipalRegions', defaultState:'checked'}];
 
 function toggleLayer(layerId) {
   var clickedLayer = layerId;

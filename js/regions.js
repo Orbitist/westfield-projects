@@ -5,7 +5,8 @@ var regionsData = {
       "type": "Feature",
       "properties": {
         "title": 'Barcelona Harbor Business District',
-        "color": "#e2e292"
+        "color": "#decbe4",
+        "polyType": "fill"
       },
       "geometry": {
         "type": "Polygon",
@@ -111,7 +112,8 @@ var regionsData = {
       "type": "Feature",
       "properties": {
         "title": 'North Portage Corridor Connection',
-        "color": "#9ec199"
+        "color": "#fed9a6",
+        "polyType": "fill"
       },
       "geometry": {
         "type": "Polygon",
@@ -189,7 +191,8 @@ var regionsData = {
       "type": "Feature",
       "properties": {
         "title": 'Historic Village Downtown',
-        "color": "#7cb9d6"
+        "color": "#ccebc5",
+        "polyType": "fill"
       },
       "geometry": {
         "type": "Polygon",

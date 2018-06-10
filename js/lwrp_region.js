@@ -5,7 +5,8 @@ var lwrpRegion = {
       "type": "Feature",
       "properties": {
         "title": 'NCC LWRP Boundary',
-        "color": "#b479d8"
+        "color": "#ffffcc",
+        "polyType": "fill"
       },
       "geometry": {
         "type": "Polygon",
