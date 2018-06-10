@@ -21,6 +21,7 @@
       <link rel="stylesheet" href="css/odometer-theme-default.css" />
       <script src="js/odometer.min.js"></script>
 
+      <link href='css/toggles.css' rel='stylesheet' />
   		<link href='css/style.css' rel='stylesheet' />
   </head>
   <body>
@@ -34,14 +35,13 @@
 
     <!-- FILTERS -->
     <div class="filters-block">
-      <div id='menu'><label>Layers</label><br></div>
+      <div id='menu'></div>
       <form id='project-filters'>
         <div class="form-row">
           <div class="col-md-12">
             <div class="form-group">
-              <label for="projectStatus">Project Status</label>
               <select class="form-control" id="projectStatus">
-                <option>All</option>
+                <option>Any Project Status</option>
                 <option>Proposed</option>
                 <option>Underway</option>
                 <option>Complete</option>
@@ -50,9 +50,8 @@
           </div>
           <div class="col-md-12">
             <div class="form-group">
-              <label for="projectType">Project Type</label>
               <select class="form-control" id="projectType">
-                <option>All</option>
+                <option>Any Project Type</option>
                 <option>Advanced Manufacturing</option>
                 <option>Agriculture</option>
                 <option>Entrepreneurship</option>
@@ -98,6 +97,7 @@
     </div><!-- /.figures-block -->
 
     <script src='js/regions.js'></script>
+    <script src='js/lwrp_region.js'></script>
     <script src='js/vr_layer.js'></script>
     <script src='js/map.js'></script>
     <script src='js/stats.js'></script>

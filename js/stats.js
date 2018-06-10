@@ -36,7 +36,7 @@ function runStats() {
   indirectJobs = 0;
   requiredInvestment = 0;
 
-  if (formProjectStatus == 'All' && formProjectType == 'All') {
+  if (formProjectStatus == 'Any Project Status' && formProjectType == 'Any Project Type') {
     for (var i = 0; i < projectsFeed.features.length; i++) {
       constructionJobs = constructionJobs + parseInt(projectsFeed.features[i].properties.construction_jobs, 10);
       cost = cost + parseInt(projectsFeed.features[i].properties.cost, 10);
@@ -45,7 +45,7 @@ function runStats() {
       indirectJobs = indirectJobs + parseInt(projectsFeed.features[i].properties.indirect_jobs, 10);
       requiredInvestment = requiredInvestment + parseInt(projectsFeed.features[i].properties.required_investment, 10);
     }
-  } else if (formProjectStatus == 'All' && formProjectType != 'All') {
+  } else if (formProjectStatus == 'Any Project Status' && formProjectType != 'Any Project Type') {
     for (var i = 0; i < projectsFeed.features.length; i++) {
       if (formProjectType == projectsFeed.features[i].properties.type) {
         constructionJobs = constructionJobs + parseInt(projectsFeed.features[i].properties.construction_jobs, 10);
@@ -56,7 +56,7 @@ function runStats() {
         requiredInvestment = requiredInvestment + parseInt(projectsFeed.features[i].properties.required_investment, 10);
       }
     }
-  } else if (formProjectStatus != 'All' && formProjectType == 'All') {
+  } else if (formProjectStatus != 'Any Project Status' && formProjectType == 'Any Project Type') {
     for (var i = 0; i < projectsFeed.features.length; i++) {
       if (formProjectStatus == projectsFeed.features[i].properties.status) {
         constructionJobs = constructionJobs + parseInt(projectsFeed.features[i].properties.construction_jobs, 10);
@@ -67,7 +67,7 @@ function runStats() {
         requiredInvestment = requiredInvestment + parseInt(projectsFeed.features[i].properties.required_investment, 10);
       }
     }
-  } else if (formProjectStatus != 'All' && formProjectType != 'All') {
+  } else if (formProjectStatus != 'Any Project Status' && formProjectType != 'Any Project Type') {
     for (var i = 0; i < projectsFeed.features.length; i++) {
       if (formProjectStatus == projectsFeed.features[i].properties.status  && formProjectType == projectsFeed.features[i].properties.type) {
         constructionJobs = constructionJobs + parseInt(projectsFeed.features[i].properties.construction_jobs, 10);

@@ -19,9 +19,24 @@ map.addControl(new mapboxgl.NavigationControl());
 
 map.on('load', function () {
 
+  // LWRP Region
+  map.addLayer({
+      'id': 'lwrpRegion',
+      'type': 'fill',
+      'source': {
+          'type': 'geojson',
+          'data': lwrpRegion
+      },
+      'layout': {},
+      'paint': {
+          'fill-color': ['get', 'color'],
+          'fill-opacity': 0.4
+      }
+  });
+
   // REGIONS
   map.addLayer({
-      'id': 'DRI Regions',
+      'id': 'driRegions',
       'type': 'fill',
       'source': {
           'type': 'geojson',
@@ -33,9 +48,11 @@ map.on('load', function () {
           'fill-opacity': 0.4
       }
   });
+
+  // Mouse interactions with regions
   map.on("mousemove", function (e) {
       var features = map.queryRenderedFeatures(e.point, {
-          layers: ["DRI Regions"]
+          layers: ["driRegions", "lwrpRegion"]
       });
 
       if (features.length) {
@@ -52,7 +69,7 @@ map.on('load', function () {
     "data": "https://westfieldny.com/api/geojson/projects"
   });
   map.addLayer({
-    "id": "Projects",
+    "id": "projects",
     "type": "circle",
     "source": "projects",
     "paint": {
@@ -70,7 +87,7 @@ map.on('load', function () {
       "circle-opacity": 1
     }
    });
-   map.on('click', 'Projects', function (e) {
+   map.on('click', 'projects', function (e) {
      var projectUrl = 'https://westfieldny.com' + e.features[0].properties.path;
      var projectImg = e.features[0].properties.image;
      var projectInfo = e.features[0].properties.status + ', ' + e.features[0].properties.type;
@@ -80,10 +97,10 @@ map.on('load', function () {
          .setHTML('<div class="card"><a href="' + projectUrl + '" target="_parent"><img src="https://westfieldny.com' + projectImg + '" alt="' + e.features[0].properties.name + '" class="card-img-top"></a><div class="card-body"><a href="' + projectUrl + '" target="_parent"><p class="lead card-title">' + projectLabel + '</p></a><p class="card-text">' + projectInfo + '</p></div></div>')
          .addTo(map);
    });
-   map.on('mouseenter', 'Projects', function () {
+   map.on('mouseenter', 'projects', function () {
        map.getCanvas().style.cursor = 'pointer';
    });
-   map.on('mouseleave', 'Projects', function () {
+   map.on('mouseleave', 'projects', function () {
        map.getCanvas().style.cursor = '';
    });
 
@@ -102,49 +119,45 @@ map.on('load', function () {
 
 });
 
-// TOGGLE LAYERS
-var toggleableLayerIds = [ 'DRI Regions', 'Projects' ];
+// TOGGLERS
+var toggleableLayers = [{label:'DRI Regions', id:'driRegions', defaultState:'checked'}, {label:'LWRP Region', id:'lwrpRegion', defaultState:'checked'}, {label:'Projects', id:'projects', defaultState:'checked'}];
 
-for (var i = 0; i < toggleableLayerIds.length; i++) {
-    var id = toggleableLayerIds[i];
+function toggleLayer(layerId) {
+  var clickedLayer = layerId;
 
-    var link = document.createElement('a');
-    link.href = '#';
-    link.className = 'active';
-    link.textContent = id;
+  var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
 
-    link.onclick = function (e) {
-        var clickedLayer = this.textContent;
-        e.preventDefault();
-        e.stopPropagation();
+  if (visibility === 'visible') {
+      map.setLayoutProperty(clickedLayer, 'visibility', 'none');
+      this.className = '';
+  } else {
+      this.className = 'active';
+      map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
+  }
+};
 
-        var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
+for (var i = 0; i < toggleableLayers.length; i++) {
+    var layer = toggleableLayers[i];
 
-        if (visibility === 'visible') {
-            map.setLayoutProperty(clickedLayer, 'visibility', 'none');
-            this.className = '';
-        } else {
-            this.className = 'active';
-            map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
-        }
-    };
+    var checkbox = document.createElement('div');
+    checkbox.innerHTML = '<label class="switch">&nbsp;<input onclick="toggleLayer(\'' + layer.id + '\')" data="lwrpRegion" id="' + layer.id + '" type="checkbox" ' + layer.defaultState + '><span class="slider round"></span></label> ' + layer.label;
 
     var layers = document.getElementById('menu');
-    layers.appendChild(link);
+    layers.appendChild(checkbox);
 }
 
 // FILTER FUNCTIONALITY
-var formProjectStatus = 'All';
-var formProjectType = 'All';
+var formProjectStatus = 'Any Project Status';
+var formProjectType = 'Any Project Type';
 var statusFilter = ["==", 'status', formProjectStatus];
 var typeFilter = ["==", 'type', formProjectType];
 
 var projectsFilterParams;
 
 function buildProjectsFilter() {
-  if (formProjectStatus == 'All' && formProjectType !== 'All') {
+  if (formProjectStatus == 'Any Project Status' && formProjectType !== 'Any Project Type') {
     projectsFilterParams = ["all", typeFilter];
-  } else if (formProjectStatus !== 'All' && formProjectType == 'All') {
+  } else if (formProjectStatus !== 'Any Project Status' && formProjectType == 'Any Project Type') {
     projectsFilterParams = ["all", statusFilter];
   } else {
     projectsFilterParams = ["all", statusFilter, typeFilter];
@@ -156,11 +169,11 @@ $('#projectStatus').change(function () {
   formProjectStatus = $(this).find("option:selected").val();
   statusFilter = ["==", 'status', formProjectStatus];
   buildProjectsFilter();
-  if (formProjectStatus == 'All' && formProjectType == 'All'){
-    map.setFilter('Projects');
+  if (formProjectStatus == 'Any Project Status' && formProjectType == 'Any Project Type'){
+    map.setFilter('projects');
     runStats();
   } else {
-    map.setFilter('Projects', projectsFilterParams);
+    map.setFilter('projects', projectsFilterParams);
     runStats();
   }
 });
@@ -169,11 +182,11 @@ $('#projectType').change(function () {
   formProjectType = $(this).find("option:selected").val();
   typeFilter = ["==", 'type', formProjectType];
   buildProjectsFilter();
-  if (formProjectStatus == 'All' && formProjectType == 'All'){
-    map.setFilter('Projects');
+  if (formProjectStatus == 'Any Project Status' && formProjectType == 'Any Project Type'){
+    map.setFilter('projects');
     runStats();
   } else {
-    map.setFilter('Projects', projectsFilterParams);
+    map.setFilter('projects', projectsFilterParams);
     runStats();
   }
 });
