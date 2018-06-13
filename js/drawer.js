@@ -3,19 +3,72 @@ function flyToProject(lng, lat) {
       center: [lng, lat],
       zoom: 16,
       bearing: 90 * (.5 - Math.random()),
-      pitch: 60,
+      pitch: 50,
       speed: 0.5,
       curve: 1
   });
+  facingNorth = false;
 };
 
 for (var i = 0; i < projectsFeed.features.length; i++) {
   if (projectsFeed.features[i].properties.featured == "True") {
-    $(".chapters-menu-cards").append('<div onclick="flyToProject(\'' + projectsFeed.features[i].geometry.coordinates[0] + '\', \'' + projectsFeed.features[i].geometry.coordinates[1] + '\')" class="chapter-card" id="id' + projectsFeed.features[i].properties.id + '"><div class="chapter-card-title"><p>' + projectsFeed.features[i].properties.name + '</p></div><div class="chapter-card-overlay"></div><img src="https://westfieldny.com' + projectsFeed.features[i].properties.image + '" /></div>');
+    //$(".drawer-content").append('<div onclick="flyToProject(\'' + projectsFeed.features[i].geometry.coordinates[0] + '\', \'' + projectsFeed.features[i].geometry.coordinates[1] + '\')" class="card" id="id' + projectsFeed.features[i].properties.id + '"><img class="card-img-top" src="https://westfieldny.com' + projectsFeed.features[i].properties.image + '" /><div class="card-body"><p>' + projectsFeed.features[i].properties.name + '</p></div></div>');
+
+    $(".drawer-content").append('<div onclick="flyToProject(\'' + projectsFeed.features[i].geometry.coordinates[0] + '\', \'' + projectsFeed.features[i].geometry.coordinates[1] + '\')" class="o-tile"><div class="o-tile-img Post"><img src="https://westfieldny.com' + projectsFeed.features[i].properties.image + '" width="200" height="200" typeof="Image" class="img-responsive"><a class="o-tile-icon Post" aria-label="Icon linking to a marker" alt="An icon" href="#"></a></div><div class="o-tile-content"><div class="o-tile-content-title">' + projectsFeed.features[i].properties.name + '</div></div></div>');
+
+
   }
 }
 
+$(document).ready(function(){
+  $('.drawer-content').slick({
+    dots: false,
+    arrows: true,
+    infinite: false,
+    speed: 300,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 5,
+          slidesToScroll: 4,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 3
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1
+        }
+      }
+      // You can unslick at a given breakpoint now by adding:
+      // settings: "unslick"
+      // instead of a settings object
+    ]
+  });
+});
+
+var facingNorth = true;
 // Toggle the chapters menu
-$( "#chapters-menu-toggle" ).click(function() {
-  $( "div.chapters-menu" ).toggleClass( "show" );
+$( "#drawer-toggle" ).click(function() {
+  $( ".drawer" ).toggleClass( "show" );
+  if (facingNorth == false) {
+    map.flyTo({
+        bearing: 0,
+        pitch: 0,
+        speed: 0.5,
+        curve: 1
+    });
+  }
 });

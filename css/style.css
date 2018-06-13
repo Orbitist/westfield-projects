@@ -84,10 +84,10 @@ body { margin:0; padding:0; }
 
 .figures-block {
   position: absolute;
-  bottom: 40px;
-  right: 20px;
+  bottom: 36px;
+  left: 5%;
   background-color: rgba(0,0,0,0.6);
-  width: calc(100% - 40px);
+  width: 90%;
   text-align: center;
   padding: 20px 20px 0;
   color: white;
