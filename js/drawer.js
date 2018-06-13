@@ -11,23 +11,22 @@ function flyToProject(lng, lat) {
 };
 
 for (var i = 0; i < projectsFeed.features.length; i++) {
-  if (projectsFeed.features[i].properties.featured == "True") {
-    //$(".drawer-content").append('<div onclick="flyToProject(\'' + projectsFeed.features[i].geometry.coordinates[0] + '\', \'' + projectsFeed.features[i].geometry.coordinates[1] + '\')" class="card" id="id' + projectsFeed.features[i].properties.id + '"><img class="card-img-top" src="https://westfieldny.com' + projectsFeed.features[i].properties.image + '" /><div class="card-body"><p>' + projectsFeed.features[i].properties.name + '</p></div></div>');
-
+  if (projectsFeed.features[i].properties.featured == "True" && projectsFeed.features[i].properties.image.length > 5) {
     $(".drawer-content").append('<div onclick="flyToProject(\'' + projectsFeed.features[i].geometry.coordinates[0] + '\', \'' + projectsFeed.features[i].geometry.coordinates[1] + '\')" class="o-tile"><div class="o-tile-img Post"><img src="https://westfieldny.com' + projectsFeed.features[i].properties.image + '" width="200" height="200" typeof="Image" class="img-responsive"><a class="o-tile-icon Post" aria-label="Icon linking to a marker" alt="An icon" href="#"></a></div><div class="o-tile-content"><div class="o-tile-content-title">' + projectsFeed.features[i].properties.name + '</div></div></div>');
-
-
+  } else if (projectsFeed.features[i].properties.featured == "True" && projectsFeed.features[i].properties.image.length < 5) {
+      $(".drawer-content").append('<div onclick="flyToProject(\'' + projectsFeed.features[i].geometry.coordinates[0] + '\', \'' + projectsFeed.features[i].geometry.coordinates[1] + '\')" class="o-tile"><div class="o-tile-img Post"><a class="o-tile-icon Post" aria-label="Icon linking to a marker" alt="An icon" href="#"></a></div><div class="o-tile-content"><div class="o-tile-content-title">' + projectsFeed.features[i].properties.name + '</div></div></div>');
   }
 }
 
 $(document).ready(function(){
   $('.drawer-content').slick({
     dots: false,
+    draggable: false,
     arrows: true,
     infinite: false,
     speed: 300,
     slidesToShow: 4,
-    slidesToScroll: 4,
+    slidesToScroll: 3,
     responsive: [
       {
         breakpoint: 1024,
@@ -49,7 +48,7 @@ $(document).ready(function(){
         breakpoint: 480,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 1
+          slidesToScroll: 2
         }
       }
       // You can unslick at a given breakpoint now by adding:
