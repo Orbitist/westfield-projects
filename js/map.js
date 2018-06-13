@@ -52,6 +52,7 @@ map.on('load', function () {
           'fill-opacity': 0.4
       }
   });
+  toggleLayer('lwrpRegion');
 
   // REGIONS
   map.addLayer({
@@ -67,6 +68,7 @@ map.on('load', function () {
           'fill-opacity': 0.4
       }
   });
+  toggleLayer('driRegions');
 
   // Mouse interactions with regions
   map.on("mousemove", function (e) {
@@ -153,6 +155,7 @@ map.on('load', function () {
             "icon-image": "suitcase-15"
           }
     });
+    toggleLayer('organizations');
     map.on('click', 'organizations', function (e) {
       var projectUrl = 'https://westfieldny.com' + e.features[0].properties.path;
       if (e.features[0].properties.image.length > 5) {
@@ -187,6 +190,7 @@ map.on('load', function () {
              "icon-image": "star-15"
            }
      });
+     toggleLayer('points');
      map.on('click', 'points', function (e) {
        var projectUrl = 'https://westfieldny.com' + e.features[0].properties.path;
        if (e.features[0].properties.image.length > 5) {
@@ -210,13 +214,8 @@ map.on('load', function () {
 
 });
 
-
-
-
-
 // TOGGLERS
-var toggleableLayers = [{label:'Projects', id:'projects', defaultState:'checked'},{label:'DRI Boundary Area', id:'driRegions', defaultState:'checked'}, {label:'LWRP Boundary Area', id:'lwrpRegion', defaultState:'checked'},
-{label:'Municipal Boundaries', id:'municipalRegions', defaultState:'checked'}, {label:'Featured Businesses', id:'organizations', defaultState:'checked'}, {label:'Points of Interest', id:'points', defaultState:'checked'}];
+var toggleableLayers = [{label:'Projects', id:'projects', defaultState:'checked'},{label:'Municipal Boundaries', id:'municipalRegions', defaultState:'checked'},{label:'DRI Boundary Area', id:'driRegions', defaultState:''}, {label:'LWRP Boundary Area', id:'lwrpRegion', defaultState:''}, {label:'Featured Businesses', id:'organizations', defaultState:''}, {label:'Points of Interest', id:'points', defaultState:''}];
 
 function toggleLayer(layerId) {
   var clickedLayer = layerId;
