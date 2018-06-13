@@ -3,7 +3,7 @@ function flyToProject(lng, lat) {
       center: [lng, lat],
       zoom: 16,
       bearing: 90 * (.5 - Math.random()),
-      pitch: 50,
+      pitch: 60,
       speed: 0.5,
       curve: 1
   });
@@ -11,9 +11,9 @@ function flyToProject(lng, lat) {
 };
 
 for (var i = 0; i < projectsFeed.features.length; i++) {
-  if (projectsFeed.features[i].properties.featured == "True" && projectsFeed.features[i].properties.image.length > 5) {
-    $(".drawer-content").append('<div onclick="flyToProject(\'' + projectsFeed.features[i].geometry.coordinates[0] + '\', \'' + projectsFeed.features[i].geometry.coordinates[1] + '\')" class="o-tile"><div class="o-tile-img Post"><img src="https://westfieldny.com' + projectsFeed.features[i].properties.image + '" width="200" height="200" typeof="Image" class="img-responsive"><a class="o-tile-icon Post" aria-label="Icon linking to a marker" alt="An icon" href="#"></a></div><div class="o-tile-content"><div class="o-tile-content-title">' + projectsFeed.features[i].properties.name + '</div></div></div>');
-  } else if (projectsFeed.features[i].properties.featured == "True" && projectsFeed.features[i].properties.image.length < 5) {
+  if (projectsFeed.features[i].properties.featured == "True" && projectsFeed.features[i].properties.tile.length > 5) {
+    $(".drawer-content").append('<div onclick="flyToProject(\'' + projectsFeed.features[i].geometry.coordinates[0] + '\', \'' + projectsFeed.features[i].geometry.coordinates[1] + '\')" class="o-tile"><div class="o-tile-img Post"><img src="https://westfieldny.com' + projectsFeed.features[i].properties.tile + '" width="200" height="200" typeof="Image" class="img-responsive"><a class="o-tile-icon Post" aria-label="Icon linking to a marker" alt="An icon" href="#"></a></div><div class="o-tile-content"><div class="o-tile-content-title">' + projectsFeed.features[i].properties.name + '</div></div></div>');
+  } else if (projectsFeed.features[i].properties.featured == "True" && projectsFeed.features[i].properties.tile.length < 5) {
       $(".drawer-content").append('<div onclick="flyToProject(\'' + projectsFeed.features[i].geometry.coordinates[0] + '\', \'' + projectsFeed.features[i].geometry.coordinates[1] + '\')" class="o-tile"><div class="o-tile-img Post"><a class="o-tile-icon Post" aria-label="Icon linking to a marker" alt="An icon" href="#"></a></div><div class="o-tile-content"><div class="o-tile-content-title">' + projectsFeed.features[i].properties.name + '</div></div></div>');
   }
 }
