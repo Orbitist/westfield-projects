@@ -127,6 +127,19 @@ map.on('load', function () {
        map.getCanvas().style.cursor = '';
    });
 
+   // VR LAYER
+   vrLayer.features.forEach(function(marker) {
+     // create a HTML element for each feature
+     var el = document.createElement('div');
+     el.className = 'vr-marker';
+     // make a marker for each feature and add to the map
+     new mapboxgl.Marker(el)
+     .setLngLat(marker.geometry.coordinates)
+     .setPopup(new mapboxgl.Popup({ offset: 10, closeButton: false }) // add popups
+     .setHTML(marker.properties.content))
+     .addTo(map);
+   });
+
    // FEATURED BUSINESSES
    map.addSource("organizations", {
      "type": "geojson",
@@ -134,15 +147,11 @@ map.on('load', function () {
    });
    map.addLayer({
      "id": "organizations",
-     "type": "circle",
+     "type": "symbol",
      "source": "organizations",
-     "paint": {
-       "circle-radius": 10,
-       "circle-stroke-width": 2,
-       "circle-stroke-color": "#ffffff",
-       "circle-color": 'pink',
-       "circle-opacity": 1
-     }
+     "layout": {
+            "icon-image": "suitcase-15"
+          }
     });
     map.on('click', 'organizations', function (e) {
       var projectUrl = 'https://westfieldny.com' + e.features[0].properties.path;
@@ -164,19 +173,6 @@ map.on('load', function () {
     map.on('mouseleave', 'organizations', function () {
         map.getCanvas().style.cursor = '';
     });
-
-   // VR LAYER
-   vrLayer.features.forEach(function(marker) {
-     // create a HTML element for each feature
-     var el = document.createElement('div');
-     el.className = 'vr-marker';
-     // make a marker for each feature and add to the map
-     new mapboxgl.Marker(el)
-     .setLngLat(marker.geometry.coordinates)
-     .setPopup(new mapboxgl.Popup({ offset: 10, closeButton: false }) // add popups
-     .setHTML(marker.properties.content))
-     .addTo(map);
-   });
 
 });
 
