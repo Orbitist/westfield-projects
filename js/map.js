@@ -108,12 +108,16 @@ map.on('load', function () {
    });
    map.on('click', 'projects', function (e) {
      var projectUrl = 'https://westfieldny.com' + e.features[0].properties.path;
-     var projectImg = e.features[0].properties.image;
+     if (e.features[0].properties.image.length > 5) {
+       var projectImg = '<img src="https://westfieldny.com' + e.features[0].properties.image + '" alt="' + e.features[0].properties.name + '" class="card-img-top">';
+     } else {
+       projectImg = '';
+     }
      var projectInfo = e.features[0].properties.status + ', ' + e.features[0].properties.type;
      var projectLabel = e.features[0].properties.name;
      new mapboxgl.Popup()
          .setLngLat(e.lngLat)
-         .setHTML('<div class="card"><a href="' + projectUrl + '" target="_parent"><img src="https://westfieldny.com' + projectImg + '" alt="' + e.features[0].properties.name + '" class="card-img-top"></a><div class="card-body"><a href="' + projectUrl + '" target="_parent"><p class="lead card-title">' + projectLabel + '</p></a><p class="card-text">' + projectInfo + '</p></div></div>')
+         .setHTML('<div class="card"><a href="' + projectUrl + '" target="_parent">' + projectImg + '</a><div class="card-body"><a href="' + projectUrl + '" target="_parent"><p class="lead card-title">' + projectLabel + '</p></a><p class="card-text">' + projectInfo + '</p></div></div>')
          .addTo(map);
    });
    map.on('mouseenter', 'projects', function () {
@@ -122,6 +126,44 @@ map.on('load', function () {
    map.on('mouseleave', 'projects', function () {
        map.getCanvas().style.cursor = '';
    });
+
+   // FEATURED BUSINESSES
+   map.addSource("organizations", {
+     "type": "geojson",
+     "data": "https://westfieldny.com/api/geojson/featured_organizations"
+   });
+   map.addLayer({
+     "id": "organizations",
+     "type": "circle",
+     "source": "organizations",
+     "paint": {
+       "circle-radius": 10,
+       "circle-stroke-width": 2,
+       "circle-stroke-color": "#ffffff",
+       "circle-color": 'pink',
+       "circle-opacity": 1
+     }
+    });
+    map.on('click', 'organizations', function (e) {
+      var projectUrl = 'https://westfieldny.com' + e.features[0].properties.path;
+      if (e.features[0].properties.image.length > 5) {
+        var projectImg = '<img src="https://westfieldny.com' + e.features[0].properties.image + '" alt="' + e.features[0].properties.name + '" class="card-img-top">';
+      } else {
+        var projectImg = '';
+      }
+      var projectInfo = e.features[0].properties.categories;
+      var projectLabel = e.features[0].properties.name;
+      new mapboxgl.Popup()
+          .setLngLat(e.lngLat)
+          .setHTML('<div class="card"><a href="' + projectUrl + '" target="_parent">' + projectImg + '</a><div class="card-body"><a href="' + projectUrl + '" target="_parent"><p class="lead card-title">' + projectLabel + '</p></a><p class="card-text">' + projectInfo + '</p></div></div>')
+          .addTo(map);
+    });
+    map.on('mouseenter', 'organizations', function () {
+        map.getCanvas().style.cursor = 'pointer';
+    });
+    map.on('mouseleave', 'organizations', function () {
+        map.getCanvas().style.cursor = '';
+    });
 
    // VR LAYER
    vrLayer.features.forEach(function(marker) {
