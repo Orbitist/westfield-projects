@@ -174,11 +174,49 @@ map.on('load', function () {
         map.getCanvas().style.cursor = '';
     });
 
+    // FEATURED POINTS
+    map.addSource("points", {
+      "type": "geojson",
+      "data": "https://westfieldny.com/api/geojson/featured_points"
+    });
+    map.addLayer({
+      "id": "points",
+      "type": "symbol",
+      "source": "points",
+      "layout": {
+             "icon-image": "star-15"
+           }
+     });
+     map.on('click', 'points', function (e) {
+       var projectUrl = 'https://westfieldny.com' + e.features[0].properties.path;
+       if (e.features[0].properties.image.length > 5) {
+         var projectImg = '<img src="https://westfieldny.com' + e.features[0].properties.image + '" alt="' + e.features[0].properties.name + '" class="card-img-top">';
+       } else {
+         var projectImg = '';
+       }
+       var projectInfo = e.features[0].properties.categories;
+       var projectLabel = e.features[0].properties.name;
+       new mapboxgl.Popup()
+           .setLngLat(e.lngLat)
+           .setHTML('<div class="card"><a href="' + projectUrl + '" target="_parent">' + projectImg + '</a><div class="card-body"><a href="' + projectUrl + '" target="_parent"><p class="lead card-title">' + projectLabel + '</p></a><p class="card-text">' + projectInfo + '</p></div></div>')
+           .addTo(map);
+     });
+     map.on('mouseenter', 'points', function () {
+         map.getCanvas().style.cursor = 'pointer';
+     });
+     map.on('mouseleave', 'points', function () {
+         map.getCanvas().style.cursor = '';
+     });
+
 });
+
+
+
+
 
 // TOGGLERS
 var toggleableLayers = [{label:'Projects', id:'projects', defaultState:'checked'},{label:'DRI Regions', id:'driRegions', defaultState:'checked'}, {label:'LWRP Region', id:'lwrpRegion', defaultState:'checked'},
-{label:'Municipal Boundaries', id:'municipalRegions', defaultState:'checked'}];
+{label:'Municipal Boundaries', id:'municipalRegions', defaultState:'checked'}, {label:'Featured Businesses', id:'organizations', defaultState:'checked'}, {label:'Points of Interest', id:'points', defaultState:'checked'}];
 
 function toggleLayer(layerId) {
   var clickedLayer = layerId;
