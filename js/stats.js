@@ -14,12 +14,10 @@ var projectsFeed = (function () {
     return projectsData;
 })();
 
-var constructionJobs;
 var cost;
-var jobsRetained;
-var economicImpact;
-var indirectJobs;
-var requiredInvestment;
+var privateInvestment;
+var localInvestment;
+var grants;
 
 // Add commas to numbers
 $.fn.digits = function(){
@@ -29,64 +27,52 @@ $.fn.digits = function(){
 }
 
 function runStats() {
-  constructionJobs = 0;
   cost = 0;
-  jobsRetained = 0;
-  economicImpact = 0;
-  indirectJobs = 0;
-  requiredInvestment = 0;
+  privateInvestment = 0;
+  localInvestment = 0;
+  grants = 0;
 
   if (formProjectStatus == 'Any Project Status' && formProjectType == 'Any Project Type') {
     for (var i = 0; i < projectsFeed.features.length; i++) {
-      constructionJobs = constructionJobs + parseInt(projectsFeed.features[i].properties.construction_jobs, 10);
       cost = cost + parseInt(projectsFeed.features[i].properties.cost, 10);
-      jobsRetained = jobsRetained + parseInt(projectsFeed.features[i].properties.jobs_retained, 10);
-      economicImpact = economicImpact + parseInt(projectsFeed.features[i].properties.economic_impact, 10);
-      indirectJobs = indirectJobs + parseInt(projectsFeed.features[i].properties.indirect_jobs, 10);
-      requiredInvestment = requiredInvestment + parseInt(projectsFeed.features[i].properties.required_investment, 10);
+      privateInvestment = privateInvestment + parseInt(projectsFeed.features[i].properties.private, 10);
+      localInvestment = localInvestment + parseInt(projectsFeed.features[i].properties.local, 10);
+      grants = grants + parseInt(projectsFeed.features[i].properties.grants, 10);
     }
   } else if (formProjectStatus == 'Any Project Status' && formProjectType != 'Any Project Type') {
     for (var i = 0; i < projectsFeed.features.length; i++) {
       if (formProjectType == projectsFeed.features[i].properties.type) {
-        constructionJobs = constructionJobs + parseInt(projectsFeed.features[i].properties.construction_jobs, 10);
         cost = cost + parseInt(projectsFeed.features[i].properties.cost, 10);
-        jobsRetained = jobsRetained + parseInt(projectsFeed.features[i].properties.jobs_retained, 10);
-        economicImpact = economicImpact + parseInt(projectsFeed.features[i].properties.economic_impact, 10);
-        indirectJobs = indirectJobs + parseInt(projectsFeed.features[i].properties.indirect_jobs, 10);
-        requiredInvestment = requiredInvestment + parseInt(projectsFeed.features[i].properties.required_investment, 10);
+        privateInvestment = privateInvestment + parseInt(projectsFeed.features[i].properties.private, 10);
+        localInvestment = localInvestment + parseInt(projectsFeed.features[i].properties.local, 10);
+        grants = grants + parseInt(projectsFeed.features[i].properties.grants, 10);
       }
     }
   } else if (formProjectStatus != 'Any Project Status' && formProjectType == 'Any Project Type') {
     for (var i = 0; i < projectsFeed.features.length; i++) {
       if (formProjectStatus == projectsFeed.features[i].properties.status) {
-        constructionJobs = constructionJobs + parseInt(projectsFeed.features[i].properties.construction_jobs, 10);
         cost = cost + parseInt(projectsFeed.features[i].properties.cost, 10);
-        jobsRetained = jobsRetained + parseInt(projectsFeed.features[i].properties.jobs_retained, 10);
-        economicImpact = economicImpact + parseInt(projectsFeed.features[i].properties.economic_impact, 10);
-        indirectJobs = indirectJobs + parseInt(projectsFeed.features[i].properties.indirect_jobs, 10);
-        requiredInvestment = requiredInvestment + parseInt(projectsFeed.features[i].properties.required_investment, 10);
+        privateInvestment = privateInvestment + parseInt(projectsFeed.features[i].properties.private, 10);
+        localInvestment = localInvestment + parseInt(projectsFeed.features[i].properties.local, 10);
+        grants = grants + parseInt(projectsFeed.features[i].properties.grants, 10);
       }
     }
   } else if (formProjectStatus != 'Any Project Status' && formProjectType != 'Any Project Type') {
     for (var i = 0; i < projectsFeed.features.length; i++) {
       if (formProjectStatus == projectsFeed.features[i].properties.status  && formProjectType == projectsFeed.features[i].properties.type) {
-        constructionJobs = constructionJobs + parseInt(projectsFeed.features[i].properties.construction_jobs, 10);
         cost = cost + parseInt(projectsFeed.features[i].properties.cost, 10);
-        jobsRetained = jobsRetained + parseInt(projectsFeed.features[i].properties.jobs_retained, 10);
-        economicImpact = economicImpact + parseInt(projectsFeed.features[i].properties.economic_impact, 10);
-        indirectJobs = indirectJobs + parseInt(projectsFeed.features[i].properties.indirect_jobs, 10);
-        requiredInvestment = requiredInvestment + parseInt(projectsFeed.features[i].properties.required_investment, 10);
+        privateInvestment = privateInvestment + parseInt(projectsFeed.features[i].properties.private, 10);
+        localInvestment = localInvestment + parseInt(projectsFeed.features[i].properties.local, 10);
+        grants = grants + parseInt(projectsFeed.features[i].properties.grants, 10);
       }
     }
   }
 
 
-  $('#constructionJobs').html(constructionJobs);
   $('#cost').html(cost);
-  $('#jobsRetained').html(jobsRetained);
-  $('#economicImpact').html(economicImpact);
-  $('#indirectJobs').html(indirectJobs);
-  $('#requiredInvestment').html(requiredInvestment);
+  $('#private').html(privateInvestment);
+  $('#local').html(localInvestment);
+  $('#grants').html(grants);
 }
 
 runStats();

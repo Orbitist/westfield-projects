@@ -70,7 +70,7 @@ map.on('load', function () {
   });
   toggleLayer('driRegions');
 
-  // Mouse interactions with regions
+  // Mouse hoverover interactions
   map.on("mousemove", function (e) {
       var features = map.queryRenderedFeatures(e.point, {
           layers: ["driRegions", "lwrpRegion", "municipalRegions"]
