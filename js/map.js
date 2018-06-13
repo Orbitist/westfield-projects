@@ -215,7 +215,7 @@ map.on('load', function () {
 
 
 // TOGGLERS
-var toggleableLayers = [{label:'Projects', id:'projects', defaultState:'checked'},{label:'DRI Regions', id:'driRegions', defaultState:'checked'}, {label:'LWRP Region', id:'lwrpRegion', defaultState:'checked'},
+var toggleableLayers = [{label:'Projects', id:'projects', defaultState:'checked'},{label:'DRI Boundary Area', id:'driRegions', defaultState:'checked'}, {label:'LWRP Boundary Area', id:'lwrpRegion', defaultState:'checked'},
 {label:'Municipal Boundaries', id:'municipalRegions', defaultState:'checked'}, {label:'Featured Businesses', id:'organizations', defaultState:'checked'}, {label:'Points of Interest', id:'points', defaultState:'checked'}];
 
 function toggleLayer(layerId) {
