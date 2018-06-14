@@ -32,6 +32,9 @@
   border-radius: 19px;
   padding-top: 1px;
 }
-.slick-arrow:hover {
+.slick-arrow:hover, .slick-arrow:active {
   background-color: #111;
+  color: black;
+  z-index: 99999999;
+  display: block;
 }
