@@ -30,12 +30,12 @@
 .pp {
   position: absolute;
   left: 20px;
-  top: 45%;
+  top: 40%;
   cursor: pointer;
 }
 .nn {
   position: absolute;
   right: 20px;
-  top: 45%;
+  top: 40%;
   cursor: pointer;
 }
