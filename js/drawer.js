@@ -1,7 +1,7 @@
 function flyToProject(lng, lat) {
   map.flyTo({
       center: [lng, lat],
-      zoom: 16,
+      zoom: 18,
       bearing: 90 * (.5 - Math.random()),
       pitch: 60,
       speed: 0.5,
