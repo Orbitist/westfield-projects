@@ -33,9 +33,15 @@
   top: 40%;
   cursor: pointer;
 }
+.pp:hover {
+  opacity: 0.8;
+}
 .nn {
   position: absolute;
   right: 20px;
   top: 40%;
   cursor: pointer;
+}
+.nn:hover {
+  opacity: 0.8;
 }
