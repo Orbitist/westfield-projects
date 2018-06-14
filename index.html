@@ -25,7 +25,7 @@
       <link rel="stylesheet" type="text/css" href="plugins/slick/slick.css"/>
       <link rel="stylesheet" type="text/css" href="plugins/slick/slick-theme.css"/>
 
-
+      <link href='css/spinner.css' rel='stylesheet' />
       <link href='css/toggles.css' rel='stylesheet' />
       <link href='css/orbitist-tiles-v2.css' rel='stylesheet' />
       <link href='css/drawer.css' rel='stylesheet' />
@@ -102,6 +102,11 @@
     <div class="drawer-content"></div>
   </div>
 
+  <!-- Spinner -->
+  <div class="spinner">
+    <div class="sk-spinner sk-spinner-pulse"></div>
+  </div>
+
     <script type="text/javascript" src="plugins/slick/slick.min.js"></script>
 
     <script src='js/regions.js'></script>
@@ -111,6 +116,15 @@
     <script src='js/map.js'></script>
     <script src='js/stats.js'></script>
     <script src='js/drawer.js'></script>
+
+    <script>
+    function removeSpinner() {
+      $(document).find(".spinner").delay(2000).fadeOut(1000, function () {
+        $(this).remove();
+      });
+    };
+    removeSpinner();
+    </script>
 
   </body>
 </html>
