@@ -23,6 +23,8 @@ $(document).ready(function(){
     dots: false,
     draggable: false,
     arrows: true,
+    prevArrow: ".pp",
+    nextArrow: ".nn",
     infinite: false,
     speed: 300,
     slidesToShow: 4,

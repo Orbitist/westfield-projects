@@ -27,6 +27,19 @@
   cursor: pointer;
 }
 
+.pp {
+  position: absolute;
+  left: 20px;
+  top: 45%;
+  cursor: pointer;
+}
+.nn {
+  position: absolute;
+  right: 20px;
+  top: 45%;
+  cursor: pointer;
+}
+
 .slick-arrow {
   background-color: #333;
   border-radius: 19px;
