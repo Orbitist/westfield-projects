@@ -4,7 +4,7 @@ var vrLayer = {
       {
         "type": "Feature",
         "properties": {
-            "content": "<iframe class='vr' allowfullscreen='true' scrolling='no' src='vr/barcelona_harbor.html' style='border:0;'></iframe><p style='margin:5px 20px 10px;' class='lead'>Bird's Eye: Barcelona Harbor</p>"
+            "content": "<iframe class='vr' allowfullscreen='false' scrolling='no' src='vr/barcelona_harbor.html' style='border:0;'></iframe><p style='margin:5px 20px 10px;' class='lead'>Bird's Eye: Barcelona Harbor</p>"
         },
         "geometry": {
             "type": "Point",
@@ -14,7 +14,7 @@ var vrLayer = {
       {
         "type": "Feature",
         "properties": {
-            "content": "<iframe class='vr' allowfullscreen='true' scrolling='no' src='vr/highway_corridor.html' style='border:0;'></iframe><p style='margin:5px 20px 10px;' class='lead'>Bird's Eye: Highway Corridor</p>"
+            "content": "<iframe class='vr' allowfullscreen='false' scrolling='no' src='vr/highway_corridor.html' style='border:0;'></iframe><p style='margin:5px 20px 10px;' class='lead'>Bird's Eye: Highway Corridor</p>"
         },
         "geometry": {
             "type": "Point",
@@ -24,7 +24,7 @@ var vrLayer = {
       {
         "type": "Feature",
         "properties": {
-            "content": "<iframe class='vr' allowfullscreen='true' scrolling='no' src='vr/welch_field.html' style='border:0;'></iframe><p style='margin:5px 20px 10px;' class='lead'>Bird's Eye: Welch Field</p>"
+            "content": "<iframe class='vr' allowfullscreen='false' scrolling='no' src='vr/welch_field.html' style='border:0;'></iframe><p style='margin:5px 20px 10px;' class='lead'>Bird's Eye: Welch Field</p>"
         },
         "geometry": {
             "type": "Point",
@@ -34,7 +34,7 @@ var vrLayer = {
       {
         "type": "Feature",
         "properties": {
-            "content": "<iframe class='vr' allowfullscreen='true' scrolling='no' src='vr/moore_park.html' style='border:0;'></iframe><p style='margin:5px 20px 10px;' class='lead'>Bird's Eye: Moore Park</p>"
+            "content": "<iframe class='vr' allowfullscreen='false' scrolling='no' src='vr/moore_park.html' style='border:0;'></iframe><p style='margin:5px 20px 10px;' class='lead'>Bird's Eye: Moore Park</p>"
         },
         "geometry": {
             "type": "Point",
