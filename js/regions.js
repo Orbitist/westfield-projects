@@ -190,7 +190,7 @@ var regionsData = {
     {
       "type": "Feature",
       "properties": {
-        "title": 'Historic Village Downtown',
+        "title": 'Historic Downtown',
         "color": "#ccebc5",
         "polyType": "fill"
       },
