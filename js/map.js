@@ -254,6 +254,8 @@ var projectsFilterParams;
 function buildProjectsFilter() {
   if (formProjectStatus == 'Any Project Status' && formProjectType == 'Priority Projects') {
     projectsFilterParams = ["all", ["==", 'featured', 'True']];
+  } else if (formProjectStatus != 'Any Project Status' && formProjectType == 'Priority Projects') {
+    projectsFilterParams = ["all", statusFilter, ["==", 'featured', 'True']];
   } else if (formProjectStatus == 'Any Project Status' && formProjectType !== 'Any Project Type') {
     projectsFilterParams = ["all", typeFilter];
   } else if (formProjectStatus !== 'Any Project Status' && formProjectType == 'Any Project Type') {
