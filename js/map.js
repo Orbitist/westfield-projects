@@ -78,6 +78,8 @@ map.on('load', function () {
 
       if (features.length && features[0].properties.title) {
           document.getElementById('region-hover').innerHTML = "<div class='region-tooltip' style='z-index:1;padding:10px 20px;border-radius:4px;background-color:" + features[0].properties.color + ";left:" + (e.point.x + 15) + "px;top:" + (e.point.y - 50) + "px;position:absolute;'>" + features[0].properties.title + "</div>";
+      } else if (features.length && features[0].properties.type) {
+        document.getElementById('region-hover').innerHTML = "<div class='region-tooltip' style='z-index:1;padding:10px 20px;border-radius:4px;background-color:white;left:" + (e.point.x + 15) + "px;top:" + (e.point.y - 50) + "px;position:absolute;'><p><small><span class='legend-dot " + features[0].properties.status.replace(/\s+/g, '-').toLowerCase() + "' ></span>" + features[0].properties.status + "</small></p>" + features[0].properties.name + "</div>";
       } else if (features.length && features[0].properties.name) {
         document.getElementById('region-hover').innerHTML = "<div class='region-tooltip' style='z-index:1;padding:10px 20px;border-radius:4px;background-color:white;left:" + (e.point.x + 15) + "px;top:" + (e.point.y - 50) + "px;position:absolute;'>" + features[0].properties.name + "</div>";
       } else {

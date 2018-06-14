@@ -155,6 +155,29 @@ iframe.vr {
   border-top-right-radius: 3px;
 }
 
+/* Hover Popups */
+.region-tooltip p {
+  margin-bottom: 0px;
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  background-color: #ccc;
+  border-radius: 20px;
+  display: inline-block;
+  margin: 0 5px 0 -10px;
+}
+.legend-dot.proposed {
+  background-color: #69D2E7;
+}
+.legend-dot.underway {
+  background-color: #E0E4CC;
+}
+.legend-dot.complete {
+  background-color: #FA6900;
+}
+
 @media (max-width: 1020px) {
   .figure {
     font-size: 18px;
