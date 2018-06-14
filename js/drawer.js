@@ -26,7 +26,7 @@ $(document).ready(function(){
     infinite: false,
     speed: 300,
     slidesToShow: 4,
-    slidesToScroll: 3,
+    slidesToScroll: 4,
     infinite: true,
     responsive: [
       {
