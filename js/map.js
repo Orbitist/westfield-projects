@@ -73,7 +73,7 @@ map.on('load', function () {
   // Mouse hoverover popups on features
   map.on("mousemove", function (e) {
       var features = map.queryRenderedFeatures(e.point, {
-          layers: ["driRegions", "lwrpRegion", "municipalRegions", "projects"]
+          layers: ["driRegions", "lwrpRegion", "municipalRegions", "projects", "organizations", "points"]
       });
 
       if (features.length && features[0].properties.title) {
