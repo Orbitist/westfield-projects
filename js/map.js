@@ -70,14 +70,16 @@ map.on('load', function () {
   });
   toggleLayer('driRegions');
 
-  // Mouse hoverover interactions
+  // Mouse hoverover popups on features
   map.on("mousemove", function (e) {
       var features = map.queryRenderedFeatures(e.point, {
-          layers: ["driRegions", "lwrpRegion", "municipalRegions"]
+          layers: ["driRegions", "lwrpRegion", "municipalRegions", "projects"]
       });
 
-      if (features.length) {
+      if (features.length && features[0].properties.title) {
           document.getElementById('region-hover').innerHTML = "<div class='region-tooltip' style='z-index:1;padding:10px 20px;border-radius:4px;background-color:" + features[0].properties.color + ";left:" + (e.point.x + 15) + "px;top:" + (e.point.y - 50) + "px;position:absolute;'>" + features[0].properties.title + "</div>";
+      } else if (features.length && features[0].properties.name) {
+        document.getElementById('region-hover').innerHTML = "<div class='region-tooltip' style='z-index:1;padding:10px 20px;border-radius:4px;background-color:white;left:" + (e.point.x + 15) + "px;top:" + (e.point.y - 50) + "px;position:absolute;'>" + features[0].properties.name + "</div>";
       } else {
           //if not hovering over a feature set tooltip to empty
           document.getElementById('region-hover').innerHTML = "";
