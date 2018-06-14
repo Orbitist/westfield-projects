@@ -34,7 +34,6 @@ function runStats() {
 
   if (formProjectStatus == 'Any Project Status' && formProjectType == 'Any Project Type') {
     for (var i = 0; i < projectsFeed.features.length; i++) {
-      console.log(projectsFeed.features.length);
       cost = cost + parseInt(projectsFeed.features[i].properties.cost, 10);
       privateInvestment = privateInvestment + parseInt(projectsFeed.features[i].properties.private, 10);
       localInvestment = localInvestment + parseInt(projectsFeed.features[i].properties.local, 10);
