@@ -178,6 +178,15 @@ iframe.vr {
   background-color: #FA6900;
 }
 
+.filters-block .legend-dot {
+  margin: 0 0 0 2px;
+}
+
+.filters-block p small {
+  padding-left: 20px;
+  font-size: 70%;
+}
+
 @media (max-width: 1020px) {
   .figure {
     font-size: 18px;
