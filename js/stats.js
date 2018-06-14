@@ -32,7 +32,16 @@ function runStats() {
   localInvestment = 0;
   grants = 0;
 
-  if (formProjectStatus == 'Any Project Status' && formProjectType == 'Any Project Type') {
+  if (formProjectStatus == 'Any Project Status' && formProjectType == 'Priority Projects') {
+    for (var i = 0; i < projectsFeed.features.length; i++) {
+      if (projectsFeed.features[i].properties.featured == 'True') {
+        cost = cost + parseInt(projectsFeed.features[i].properties.cost, 10);
+        privateInvestment = privateInvestment + parseInt(projectsFeed.features[i].properties.private, 10);
+        localInvestment = localInvestment + parseInt(projectsFeed.features[i].properties.local, 10);
+        grants = grants + parseInt(projectsFeed.features[i].properties.grants, 10);
+      }
+    }
+  } else if (formProjectStatus == 'Any Project Status' && formProjectType == 'Any Project Type') {
     for (var i = 0; i < projectsFeed.features.length; i++) {
       cost = cost + parseInt(projectsFeed.features[i].properties.cost, 10);
       privateInvestment = privateInvestment + parseInt(projectsFeed.features[i].properties.private, 10);

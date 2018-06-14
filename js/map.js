@@ -252,14 +252,15 @@ var typeFilter = ["==", 'type', formProjectType];
 var projectsFilterParams;
 
 function buildProjectsFilter() {
-  if (formProjectStatus == 'Any Project Status' && formProjectType !== 'Any Project Type') {
+  if (formProjectStatus == 'Any Project Status' && formProjectType == 'Priority Projects') {
+    projectsFilterParams = ["all", ["==", 'featured', 'True']];
+  } else if (formProjectStatus == 'Any Project Status' && formProjectType !== 'Any Project Type') {
     projectsFilterParams = ["all", typeFilter];
   } else if (formProjectStatus !== 'Any Project Status' && formProjectType == 'Any Project Type') {
     projectsFilterParams = ["all", statusFilter];
   } else {
     projectsFilterParams = ["all", statusFilter, typeFilter];
   }
-  console.log(projectsFilterParams);
 }
 
 $('#projectStatus').change(function () {
