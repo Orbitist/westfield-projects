@@ -191,8 +191,8 @@ map.on('load', function () {
       "type": "symbol",
       "source": "points",
       "layout": {
-             "icon-image": "star-15"
-           }
+        "icon-image": "star-15"
+      }
      });
      toggleLayer('points');
      map.on('click', 'points', function (e) {
