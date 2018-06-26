@@ -156,7 +156,8 @@ map.on('load', function () {
      "type": "symbol",
      "source": "organizations",
      "layout": {
-            "icon-image": "suitcase-15"
+            "icon-image": "suitcase-15",
+            "icon-allow-overlap": true
           }
     });
     toggleLayer('organizations');
@@ -191,7 +192,8 @@ map.on('load', function () {
       "type": "symbol",
       "source": "points",
       "layout": {
-        "icon-image": "star-15"
+        "icon-image": "map-marker-15",
+        "icon-allow-overlap": true
       }
      });
      toggleLayer('points');
