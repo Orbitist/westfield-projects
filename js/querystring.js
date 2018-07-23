@@ -10,17 +10,21 @@ function getParameterByName(name, url) {
 
 var queryType = getParameterByName('type');
 
-$('#projectType').val(queryType);
+if (queryType) {
 
-map.on('load', function(e) {
-  formProjectType = $("#projectType").find("option:selected").val();
-  typeFilter = ["==", 'type', formProjectType];
-  buildProjectsFilter();
-  if (formProjectStatus == 'Any Project Status' && formProjectType == 'Any Project Type'){
-    map.setFilter('projects');
-    runStats();
-  } else {
-    map.setFilter('projects', projectsFilterParams);
-    runStats();
-  }
-});
+  $('#projectType').val(queryType);
+
+  map.on('load', function(e) {
+    formProjectType = $("#projectType").find("option:selected").val();
+    typeFilter = ["==", 'type', formProjectType];
+    buildProjectsFilter();
+    if (formProjectStatus == 'Any Project Status' && formProjectType == 'Any Project Type'){
+      map.setFilter('projects');
+      runStats();
+    } else {
+      map.setFilter('projects', projectsFilterParams);
+      runStats();
+    }
+  });
+
+}
