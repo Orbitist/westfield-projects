@@ -60,7 +60,7 @@ function runStats() {
     }
   } else if (formProjectStatus == 'Any Project Status' && formProjectType != 'Any Project Type') {
     for (var i = 0; i < projectsFeed.features.length; i++) {
-      if (formProjectType == projectsFeed.features[i].properties.type) {
+      if (projectsFeed.features[i].properties.type.includes(formProjectType)) {
         cost = cost + parseInt(projectsFeed.features[i].properties.cost, 10);
         privateInvestment = privateInvestment + parseInt(projectsFeed.features[i].properties.private, 10);
         localInvestment = localInvestment + parseInt(projectsFeed.features[i].properties.local, 10);
@@ -78,7 +78,7 @@ function runStats() {
     }
   } else if (formProjectStatus != 'Any Project Status' && formProjectType != 'Any Project Type') {
     for (var i = 0; i < projectsFeed.features.length; i++) {
-      if (formProjectStatus == projectsFeed.features[i].properties.status  && formProjectType == projectsFeed.features[i].properties.type) {
+      if (formProjectStatus == projectsFeed.features[i].properties.status  && projectsFeed.features[i].properties.type.includes(formProjectType)) {
         cost = cost + parseInt(projectsFeed.features[i].properties.cost, 10);
         privateInvestment = privateInvestment + parseInt(projectsFeed.features[i].properties.private, 10);
         localInvestment = localInvestment + parseInt(projectsFeed.features[i].properties.local, 10);
