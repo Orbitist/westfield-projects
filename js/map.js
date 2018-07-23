@@ -119,7 +119,7 @@ map.on('load', function () {
      } else {
        projectImg = '';
      }
-     var projectInfo = e.features[0].properties.status + ', ' + e.features[0].properties.type;
+     var projectInfo = e.features[0].properties.description;
      var projectLabel = e.features[0].properties.name;
      new mapboxgl.Popup()
          .setLngLat(e.lngLat)

@@ -1,4 +1,4 @@
-var projectsAPI = 'https://westfieldny.com/api/geojson/projects';
+var projectsAPI = 'https://westfieldny.com/api/geojson/projects-stats';
 
 var projectsFeed = (function () {
     var projectsData = null;
